@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import InputDisplay from './InputDisplay.jsx';
+import CalcDisplay from './CalcDisplay.jsx';
+import CalcButtons from './CalcButtons.jsx';
 
 class App extends Component {
 
@@ -11,7 +14,12 @@ class App extends Component {
         return (
             <div class="app">
                 <h1>FCC Calculator</h1>
-                {this.props.children}
+                <InputDisplay inputDisplay={"3"} />
+                <CalcDisplay calcDisplay={"2+2=4"} />
+                {/* pass down all props
+                    or instead of sending them down do the whole connect thing again
+                 */}
+                <CalcButtons />
             </div>
         );
     }

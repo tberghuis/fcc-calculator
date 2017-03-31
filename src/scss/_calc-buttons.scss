@@ -1,0 +1,17 @@
+.calc-buttons {
+    position: relative;
+    button {
+        width: 50px;
+        height: 50px;
+        // display: inline-block;
+    }
+    .zero {
+        width: 100px;
+    }
+    .equals {
+        height: 100px;
+        position: absolute;
+        top: 150px;
+        left: 150px;
+    }
+}

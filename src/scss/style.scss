@@ -2,3 +2,9 @@
 @import "app";
 @import "calc-buttons";
 @import "input-display";
+@import "calc-display";
+@media screen and (max-width: 500px) {
+    #github-banner {
+        display: none;
+    }
+}

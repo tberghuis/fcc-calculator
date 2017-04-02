@@ -22,7 +22,7 @@ const inputDisplay = (state = "", action) => {
         case 'CLEAR_ALL':
             return "";
         case 'EQUALS_PRESS':
-            return ""+eval(action.calculation);
+            return "" + eval(action.calculation);
         default:
             return state;
     }
@@ -32,9 +32,15 @@ const inputDisplay = (state = "", action) => {
 const calcDisplay = (state = "", action) => {
     switch (action.type) {
         case 'OPERATOR_PRESS':
-            if(state.indexOf('=')>-1){
+            if (state.indexOf('=') > -1) {
                 state = "";
             }
+            // if last char operator overwrite
+            if (action.operand === "" && "/*-+".indexOf(state.slice(-1)) > -1) {
+                return state.slice(0, state.length - 1) + action.operator;
+            }
+            
+
             return state + action.operand + action.operator;
         case 'CLEAR_ALL':
             return "";
@@ -44,9 +50,6 @@ const calcDisplay = (state = "", action) => {
             return state;
     }
 };
-
-
-
 
 
 const calculatorApp = combineReducers({

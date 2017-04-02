@@ -60,7 +60,7 @@ class CalcButtons extends Component {
             }
             this.props.dispatch(actions.equalsPress(calculation));
         } catch (e) {
-            alert("Please Clear All (CA) and try again.");
+            //alert("Please Clear All (CA) and try again.");
         }
 
 

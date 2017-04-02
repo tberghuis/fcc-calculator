@@ -15,6 +15,8 @@ export const operatorPress = (operand, operator) => {
 
     //let operand = '45345';
 
+    //if(operand)
+
     return {
         type: 'OPERATOR_PRESS',
         operator,

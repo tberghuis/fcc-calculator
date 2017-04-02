@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-
 class InputDisplay extends Component {
 
     constructor(props) {
@@ -11,7 +10,7 @@ class InputDisplay extends Component {
 
     render() {
 
-        console.log(this.props.inputDisplay);
+        // console.log(this.props.inputDisplay);
         return (
             <div class="input-display">
                 <input type="text"
@@ -23,16 +22,6 @@ class InputDisplay extends Component {
     }
 
 };
-
-
-// const VisibleTodoList = withRouter(connect(
-//   mapStateToProps,
-//   { onTodoClick: toggleTodo }
-// )(TodoList));
-
-// const mapStateToProps = (state, { params }) => ({
-//   todos: getVisibleTodos(state, params.filter || 'all'),
-// });
 
 const mapStateToProps = (state) => ({
     inputDisplay: state.calculator.inputDisplay

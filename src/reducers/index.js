@@ -68,11 +68,8 @@ const calculator = (state = resetState(), action) => {
     }
 };
 
-
-
-
 const calculatorApp = combineReducers({
     calculator
 })
 
-export default calculatorApp
+export default calculatorApp;

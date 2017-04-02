@@ -16,9 +16,6 @@ class App extends Component {
                 <h1>FCC Calculator</h1>
                 <InputDisplay />
                 <CalcDisplay />
-                {/* pass down all props
-                    or instead of sending them down do the whole connect thing again
-                 */}
                 <CalcButtons />
             </div>
         );

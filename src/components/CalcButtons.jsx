@@ -1,10 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
-//import { digitPress } from '../actions/index.js';
-
 import * as actions from '../actions/index.js';
-
 
 class CalcButtons extends Component {
 
@@ -12,15 +9,10 @@ class CalcButtons extends Component {
         super(props);
     }
 
-
-
     digitPress = (digit) => {
         console.log("press", digit);
         this.props.dispatch(actions.digitPress(digit));
     }
-
-
-
 
     render() {
 
@@ -97,17 +89,4 @@ CalcButtons.propTypes = {
     dispatch: PropTypes.func.isRequired,
 };
 
-
-// const mapStateToProps = (state) => ({
-//     //console.log(state); // state
-//     //console.log(ownProps); // ownProps
-
-//     operand: state.inputDisplay,
-//     calcDisplay: state.calcDisplay
-// });
-
-
-//export default CalcButtons;//
 export default connect()(CalcButtons);
-
-// onClick={('7') => {this.digitPress(7)}

@@ -15,59 +15,11 @@ class CalcButtons extends Component {
 
 
     digitPress = (digit) => {
-
-        if (this.props.calcDisplay.indexOf("=") > -1) {
-            this.props.dispatch(actions.clearAll());
-        }
-
-
-
-        // dispatch
+        console.log("press", digit);
         this.props.dispatch(actions.digitPress(digit));
-
     }
 
 
-    periodPress = () => {
-
-        if (this.props.calcDisplay.indexOf("=") > -1) {
-            this.props.dispatch(actions.clearAll());
-        }
-
-
-
-        // dispatch
-        this.props.dispatch(actions.periodPress());
-
-    }
-
-    operatorPress = (operator) => {
-        this.props.dispatch(actions.operatorPress(this.props.operand, operator));
-
-        this.props.dispatch(actions.clearEntry());
-    }
-
-
-    equalsPress = () => {
-
-        let calculation = this.props.calcDisplay + this.props.operand;
-
-        // eval()
-
-        try {
-            if (!eval(calculation)) {
-                return;
-            }
-            this.props.dispatch(actions.equalsPress(calculation));
-        } catch (e) {
-            //alert("Please Clear All (CA) and try again.");
-        }
-
-
-
-
-        //this.props.dispatch(actions.clearEntry());
-    }
 
 
     render() {
@@ -83,10 +35,10 @@ class CalcButtons extends Component {
                     onClick={() => dispatch(actions.clearEntry())}
                 >CE</button>
                 <button
-                    onClick={() => this.operatorPress('/')}
+                    onClick={() => dispatch(actions.operatorPress('/'))}
                 >&divide;</button>
                 <button
-                    onClick={() => this.operatorPress('*')}
+                    onClick={() => dispatch(actions.operatorPress('*'))}
                 >&times;</button>
                 <br />
                 <button
@@ -99,7 +51,7 @@ class CalcButtons extends Component {
                     onClick={() => this.digitPress(9)}
                 >9</button>
                 <button
-                    onClick={() => this.operatorPress('-')}
+                    onClick={() => dispatch(actions.operatorPress('-'))}
                 >-</button>
                 <br />
                 <button
@@ -112,7 +64,7 @@ class CalcButtons extends Component {
                     onClick={() => this.digitPress(6)}
                 >6</button>
                 <button
-                    onClick={() => this.operatorPress('+')}
+                    onClick={() => dispatch(actions.operatorPress('+'))}
                 >+</button>
                 <br />
                 <button
@@ -130,10 +82,10 @@ class CalcButtons extends Component {
                     onClick={() => this.digitPress(0)}
                 >0</button>
                 <button
-                    onClick={this.periodPress}
+                    onClick={() => dispatch(actions.periodPress())}
                 >.</button>
                 <button class="equals"
-                    onClick={this.equalsPress}
+                    onClick={() => dispatch(actions.equalsPress())}
                 >=</button>
             </div >
         );
@@ -146,16 +98,16 @@ CalcButtons.propTypes = {
 };
 
 
-const mapStateToProps = (state) => ({
-    //console.log(state); // state
-    //console.log(ownProps); // ownProps
+// const mapStateToProps = (state) => ({
+//     //console.log(state); // state
+//     //console.log(ownProps); // ownProps
 
-    operand: state.inputDisplay,
-    calcDisplay: state.calcDisplay
-});
+//     operand: state.inputDisplay,
+//     calcDisplay: state.calcDisplay
+// });
 
 
 //export default CalcButtons;//
-export default connect(mapStateToProps)(CalcButtons);
+export default connect()(CalcButtons);
 
 // onClick={('7') => {this.digitPress(7)}

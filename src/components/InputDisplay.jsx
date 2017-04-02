@@ -10,6 +10,8 @@ class InputDisplay extends Component {
     }
 
     render() {
+
+        console.log(this.props.inputDisplay);
         return (
             <div class="input-display">
                 <input type="text"
@@ -33,7 +35,7 @@ class InputDisplay extends Component {
 // });
 
 const mapStateToProps = (state) => ({
-    inputDisplay: state.inputDisplay
+    inputDisplay: state.calculator.inputDisplay
 });
 
 InputDisplay = connect(

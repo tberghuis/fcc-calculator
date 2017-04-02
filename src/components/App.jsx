@@ -14,8 +14,8 @@ class App extends Component {
         return (
             <div class="app">
                 <h1>FCC Calculator</h1>
-                <InputDisplay inputDisplay={"3"} />
-                <CalcDisplay calcDisplay={"2+2=4"} />
+                <InputDisplay />
+                <CalcDisplay />
                 {/* pass down all props
                     or instead of sending them down do the whole connect thing again
                  */}

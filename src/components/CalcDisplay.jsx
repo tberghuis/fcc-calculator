@@ -10,23 +10,20 @@ class CalcDisplay extends Component {
     render() {
         return (
             <div class="calc-display">
-                {this.props.calcDisplay}
+                {this.props.calculation + this.props.lastOperator}
             </div>
         );
     }
 
 };
 
-//export default CalcDisplay;
-
-
-
 const mapStateToProps = (state) => ({
-  calcDisplay: state.calcDisplay
+    calculation: state.calculator.calculation,
+    lastOperator: state.calculator.lastOperator
 });
 
 CalcDisplay = connect(
-  mapStateToProps
+    mapStateToProps
 )(CalcDisplay);
 
 export default CalcDisplay;

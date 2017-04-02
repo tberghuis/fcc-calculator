@@ -9,7 +9,12 @@ import App from './components/App.jsx'
 
 import style from './scss/style.scss';
 
-const store = createStore(reducer);
+
+
+// TODO
+const store = createStore(reducer,
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 const rootEl = document.getElementById('root');
 
 const render = () => ReactDOM.render(

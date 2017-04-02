@@ -8,21 +8,10 @@ export const periodPress = () => ({
     type: 'PERIOD_PRESS'
 });
 
-export const operatorPress = (operand, operator) => {
-
-    // getting from store is antipattern???
-    // in action creator
-
-    //let operand = '45345';
-
-    //if(operand)
-
-    return {
-        type: 'OPERATOR_PRESS',
-        operator,
-        operand
-    };
-};
+export const operatorPress = (operator) => ({
+    type: 'OPERATOR_PRESS',
+    operator
+});
 
 
 export const clearEntry = () => ({
@@ -33,9 +22,6 @@ export const clearAll = () => ({
     type: 'CLEAR_ALL'
 });
 
-export const equalsPress = (calculation) => ({
-    type: 'EQUALS_PRESS',
-    calculation
+export const equalsPress = () => ({
+    type: 'EQUALS_PRESS'
 });
-
-

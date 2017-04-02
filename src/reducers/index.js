@@ -2,9 +2,6 @@ import {
     combineReducers
 } from 'redux'
 
-
-// should i use immutable
-
 const resetState = () => {
     const defaultState = {};
     defaultState.inputDisplay = "";
@@ -13,7 +10,6 @@ const resetState = () => {
     defaultState.displayIsAns = false;
     return defaultState;
 }
-
 
 const calculator = (state = resetState(), action) => {
     // since so common
@@ -45,26 +41,17 @@ const calculator = (state = resetState(), action) => {
             }
 
             state.displayIsAns = true;
-            // let ans;
-            //come back
             if (state.inputDisplay !== "") {
-
                 state.calculation += state.lastOperator + state.inputDisplay;
-
             }
             state.lastOperator = "";
             state.inputDisplay = eval(state.calculation);
             return state;
-
-            // return "" + eval(action.calculation);
         case 'OPERATOR_PRESS':
-            // console.log("here");
-
             if (state.inputDisplay === "") {
                 state.lastOperator = action.operator;
                 return state;
             }
-
             if (state.displayIsAns) {
                 state.calculation = state.inputDisplay;
                 state.lastOperator = action.operator;
@@ -72,22 +59,10 @@ const calculator = (state = resetState(), action) => {
                 state.inputDisplay = "";
                 return state;
             }
-
             state.calculation += state.lastOperator + state.inputDisplay;
             state.inputDisplay = "";
             state.lastOperator = action.operator;
-
             return state;
-            // if (state.indexOf('=') > -1) {
-            //     state = "";
-            // }
-            // // if last char operator overwrite
-            // if (action.operand === "" && "/*-+".indexOf(state.slice(-1)) > -1) {
-            //     return state.slice(0, state.length - 1) + action.operator;
-            // }
-
-
-            // return state + action.operand + action.operator;
         default:
             return state;
     }

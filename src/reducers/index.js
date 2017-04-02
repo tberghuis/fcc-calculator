@@ -21,7 +21,12 @@ const calculator = (state = resetState(), action) => {
             if (state.displayIsAns) {
                 state = resetState();
             }
-            state.inputDisplay += action.digit;
+            if (state.inputDisplay == "0") {
+                state.inputDisplay = ""+action.digit;
+            } else {
+                state.inputDisplay += ""+action.digit;
+            }
+            // state.inputDisplay += action.digit;
             return state;
         case 'PERIOD_PRESS':
             if (state.inputDisplay.indexOf('.') > -1) {
@@ -45,7 +50,12 @@ const calculator = (state = resetState(), action) => {
                 state.calculation += state.lastOperator + state.inputDisplay;
             }
             state.lastOperator = "";
-            state.inputDisplay = eval(state.calculation);
+
+            // try{
+                // put eval here??
+            // }
+
+            state.inputDisplay = ""+eval(state.calculation);
             return state;
         case 'OPERATOR_PRESS':
             if (state.inputDisplay === "") {

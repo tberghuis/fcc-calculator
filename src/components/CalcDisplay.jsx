@@ -8,9 +8,17 @@ class CalcDisplay extends Component {
     }
 
     render() {
+
+        let calc = this.props.calculator;
+        let disp;
+        if(calc.displayIsAns){
+            disp = calc.calculation + "=";
+        } else {
+            disp = calc.calculation + calc.lastOperator;
+        }
         return (
             <div class="calc-display">
-                {this.props.calculation + this.props.lastOperator}
+                {disp}
             </div>
         );
     }
@@ -18,8 +26,9 @@ class CalcDisplay extends Component {
 };
 
 const mapStateToProps = (state) => ({
-    calculation: state.calculator.calculation,
-    lastOperator: state.calculator.lastOperator
+    // calculation: state.calculator.calculation,
+    // lastOperator: state.calculator.lastOperator
+    calculator: state.calculator
 });
 
 CalcDisplay = connect(

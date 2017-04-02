@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 
 class CalcDisplay extends Component {
 
@@ -16,5 +16,17 @@ class CalcDisplay extends Component {
     }
 
 };
+
+//export default CalcDisplay;
+
+
+
+const mapStateToProps = (state) => ({
+  calcDisplay: state.calcDisplay
+});
+
+CalcDisplay = connect(
+  mapStateToProps
+)(CalcDisplay);
 
 export default CalcDisplay;
